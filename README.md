@@ -1,24 +1,30 @@
-advent of code 2022
-===================
+# advent of code 2022
 
 https://adventofcode.com/2022
 
-### stream / youtube
+This setup repo is from anthonywritescode
+This is his [video guide](https://www.youtube.com/watch?v=CZZLCeRya74)
 
-- [Streamed daily on twitch](https://twitch.tv/anthonywritescode)
-- [Streams uploaded to youtube afterwards](https://www.youtube.com/@anthonywritescode-vods)
+## Instructions
 
-### about
+### Initial setup
 
-for 2022, I'm planning to implement in python
+- create a `.env` file with `session=XXXX` - you can get the session key by logging into advent of code and revealing it wiuth the developer tool `Application-Cookies`
+- setup virtualenv `python3 -m venv venv`
 
-### timing
+### Ongoing
 
-- comparing to these numbers isn't necessarily useful
-- normalize your timing to day 1 part 1 and compare
-- alternate implementations are listed in parens
-- these timings are very non-scientific (sample size 1)
+- activate with `source venv/bin/activate` unless you've setup aactivator as Anthony recommends
+- copy day00 to relevant day `cp -r day00 day01`
+- cd to latest day folder
+- grab your input text `aoc-download-input`
 
-```console
-$ find -maxdepth 1 -type d -name 'day*' -not -name day00 | sort | xargs --replace bash -xc 'python {}/part1.py {}/input.txt; python {}/part2.py {}/input.txt'
-```
+### Solving problems
+
+- implement your solution in the `def compute` function
+- Add the test case and expected result to INPUT_S and EXPECTED respectively
+- run test with `pytest part1.py`
+- run script with `python3 part1.py input.txt`
+- submit your answer with either `echo answer | aoc-submit --part 1` or `python3 part1.py input.txt | aoc-submit --part 1`
+
+- `cp part1.py part2.py` then solve as above
