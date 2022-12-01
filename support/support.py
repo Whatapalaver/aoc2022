@@ -15,6 +15,8 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from typing import Generator
+import ssl
+import certifi
 
 
 
@@ -47,7 +49,7 @@ def _get_cookie_headers() -> dict[str, str]:
 def get_input(year: int, day: int) -> str:
     url = f'https://adventofcode.com/{year}/day/{day}/input'
     req = urllib.request.Request(url, headers=_get_cookie_headers())
-    return urllib.request.urlopen(req).read().decode()
+    return urllib.request.urlopen(req, context=ssl.create_default_context(cafile=certifi.where())).read().decode()
 
 
 def get_year_day() -> tuple[int, int]:
