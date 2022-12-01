@@ -109,7 +109,7 @@ def _post_answer(year: int, day: int, part: int, answer: int) -> str:
         data=params.encode(),
         headers=_get_cookie_headers(),
     )
-    resp = urllib.request.urlopen(req)
+    resp = urllib.request.urlopen(req, context=ssl.create_default_context(cafile=certifi.where()))
 
     return resp.read().decode()
 
