@@ -337,3 +337,10 @@ def astar_search(start, h_func, moves_func):
 def Path(previous, s): 
     "Return a list of states that lead to state s, according to the previous dict."
     return ([] if (s is None) else Path(previous, previous[s]) + [s])
+
+# Additional
+
+# grouper('ABCDEFG', 3) --> ABC DEF
+def grouper(iterable, n):
+    args = [iter(iterable)] * n
+    return zip(*args)
